@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CitiesController } from './cities/cities.controller';
 import { CitiesModule } from './cities/cities.module';
 import { City } from './cities/city.entity';
 
@@ -16,7 +15,7 @@ import { City } from './cities/city.entity';
     }),
     CitiesModule,
   ],
-  controllers: [AppController, CitiesController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule { }
