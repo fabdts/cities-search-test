@@ -16,7 +16,7 @@ export class CitiesService {
    * @returns Filtered cities City[]
    */
   async index(q: string): Promise<City[]> {
-    if (!q || q.length < 3) throw new BadRequestException();
+    if (!q || q.length < 2) throw new BadRequestException();
 
     return await this.cityRepository
       .createQueryBuilder()
