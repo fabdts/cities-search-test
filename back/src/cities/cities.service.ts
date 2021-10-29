@@ -10,8 +10,12 @@ export class CitiesService {
     private cityRepository: Repository<City>
   ) { }
 
+  /**
+   * Return cities
+   * @param q Query param
+   * @returns Filtered cities City[]
+   */
   async index(q: string): Promise<City[]> {
-    console.log(q)
     if (!q || q.length < 3) throw new BadRequestException();
 
     return await this.cityRepository
