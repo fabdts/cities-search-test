@@ -28,6 +28,7 @@ export const Home = () => {
             const responseData = await response.json();
             const formattedData = { metro: [], domtom: [] };
             responseData.forEach((c: { id: number, zip: string, name: string }) => {
+              // DOM-TOM
               if (parseInt(c.zip) >= 97000) {
                 formattedData.domtom.push(c);
               } else {
@@ -35,13 +36,11 @@ export const Home = () => {
               }
             })
             setCities(formattedData);
-            console.log(formattedData);
             setIsLoading(false);
           } else {
             setCities({ metro: [], domtom: [] });
           }
         } catch (e) {
-          console.log(e);
           setCities({ metro: [], domtom: [] });
         }
       })();
